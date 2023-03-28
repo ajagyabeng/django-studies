@@ -1,0 +1,16 @@
+{% extends "template.html" %}
+
+{% block content %}
+<form action="" method="post">
+  {% csrf_token %}
+  <!-- 
+    {{ obj }}: serves as a dynamic variable since this delete html will be used for deleting any other item.
+  -->
+  <p>Are you sure you want to delete "{{ obj }}"?</p>
+  <!-- 
+    request.META.HTTP_REFERER: Returns back to the previous page.
+  -->
+  <a href="{{ request.META.HTTP_REFERER }}">Go Back</a>
+  <input type="submit" value="Confirm">
+</form>
+{% endblock %}
